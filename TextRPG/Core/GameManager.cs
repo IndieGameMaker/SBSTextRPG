@@ -64,7 +64,31 @@ public class GameManager
         Console.WriteLine("2: 궁수");
         Console.WriteLine("3: 법사");
 
-        JobType job = JobType.Warrior;
+        JobType job = JobType.Warrior; // 기본값 설정
+
+        while (true)
+        {
+            Console.Write("선택 (1-3): ");
+            string? input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    job = JobType.Warrior;
+                    break;
+                case "2":
+                    job = JobType.Archer;
+                    break;
+                case "3":
+                    job = JobType.Wizard;
+                    break;
+                default:
+                    Console.WriteLine("잘못 입력했습니다. 다시 입력하세요.");
+                    continue;
+            }
+
+            break;
+        }
     }
     #endregion
 }
