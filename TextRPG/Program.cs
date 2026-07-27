@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using TextRPG.Core;
 
 namespace TextRPG;
 
@@ -11,5 +12,6 @@ class Program
         
         // TODO: 저장된 게임 존재 여부 확인
         // TODO: 게임 로딩 및 새 게임 시작
+        GameManager.Instance.StartGame();
     }
 }

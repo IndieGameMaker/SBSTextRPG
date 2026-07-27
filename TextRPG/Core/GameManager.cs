@@ -28,7 +28,12 @@ public class GameManager
     }
     #endregion
 
-    #region
-
+    #region 게임 시작 / 종료
+    // 게임 시작 메서드
+    public void StartGame()
+    {
+        // 게임 타이틀 표시
+        Console.WriteLine("TextRPG");
+    }
     #endregion
 }
