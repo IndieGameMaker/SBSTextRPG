@@ -1,4 +1,5 @@
 using TextRPG.Utils;
+using TextRPG.Models;
 
 namespace TextRPG.Core;
 
@@ -36,6 +37,34 @@ public class GameManager
     {
         // 게임 타이틀 표시
         ConsoleUI.ShowTitle();
+        // 캐릭터 생성
+        CreateCharacter();
+        // TODO : 인벤토리 초기화
+        // TODO : 초기 아이템 지급
+    }
+    #endregion
+    
+    #region 캐릭터 생성
+
+    private void CreateCharacter()
+    {
+        // 이름 입력
+        Console.Write("캐릭터의 이름을 입력하세요: ");
+        string? name = Console.ReadLine(); // ? : null 값을 허용한다. nullable 변수
+
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            name = "무명용사";
+        }
+        Console.WriteLine($"{name}님, 모험을 시작하겠습니다.");
+        
+        // 직업 선택
+        Console.WriteLine("직업을 선택하세요 :");
+        Console.WriteLine("1: 전사");
+        Console.WriteLine("2: 궁수");
+        Console.WriteLine("3: 법사");
+
+        JobType job = JobType.Warrior;
     }
     #endregion
 }
