@@ -1,3 +1,5 @@
+using TextRPG.Utils;
+
 namespace TextRPG.Core;
 
 // 싱글턴 (Singleton) 디자인 패턴
@@ -33,7 +35,7 @@ public class GameManager
     public void StartGame()
     {
         // 게임 타이틀 표시
-        Console.WriteLine("TextRPG");
+        ConsoleUI.ShowTitle();
     }
     #endregion
 }
