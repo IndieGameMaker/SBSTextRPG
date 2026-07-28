@@ -45,6 +45,7 @@ public class GameManager
         CreateCharacter();
         // TODO : 인벤토리 초기화
         // TODO : 초기 아이템 지급
+        ShowMainMenu();
     }
     #endregion
     
@@ -109,8 +110,17 @@ public class GameManager
     {
         Console.Clear();
         Console.WriteLine("╔════════════════════════════════╗");
-        Console.WriteLine("║            메인 메뉴         ║");
+        Console.WriteLine("║            메인 메뉴           ║");
         Console.WriteLine("╚════════════════════════════════╝");
+        Console.WriteLine("\n1. 상태보기");
+        Console.WriteLine("2. 인벤토리");
+        Console.WriteLine("3. 상점");
+        Console.WriteLine("4. 던전입장(전투)");
+        Console.WriteLine("5. 휴식(HP/MP 회복)");
+        Console.WriteLine("6. 저장");
+        Console.WriteLine("0. 종료");
+        
+        
     }
 
     #endregion
