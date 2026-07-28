@@ -16,7 +16,7 @@ public class Player : Character
     public Player(string name, JobType job) : base(
         name, 
         maxHp:GetInitHp(job), 
-        maxMp:50, 
+        maxMp:GetInitMp(job), 
         attackPower:20,
         defense:10,
         level:1)
@@ -37,6 +37,17 @@ public class Player : Character
             case JobType.Wizard: return 80;
             default: return 100;
         }
+    }
+
+    private static int GetInitMp(JobType job)
+    {
+        return job switch
+        {
+            JobType.Warrior => 30,
+            JobType.Archer => 50,
+            JobType.Wizard => 100,
+            _ => 20
+        };
     }
     #endregion
 }
