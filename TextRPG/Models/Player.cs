@@ -25,4 +25,15 @@ public class Player : Character
         Gold = 1000;
     }
     #endregion
+    
+    #region 직업별 초기 스텟 로딩
+
+    // private static int GetInitHp(JobType job)
+    // {
+    //     switch (job)
+    //     {
+    //         case JobType.Warrior:
+    //     }
+    // }
+    #endregion
 }
