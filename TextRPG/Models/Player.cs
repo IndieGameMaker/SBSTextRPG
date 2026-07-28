@@ -76,7 +76,7 @@ public class Player : Character
     {
         base.DisplayInfo();
         Console.WriteLine($"골드: {Gold}");
-        Console.WriteLine("=====================");
+        Console.WriteLine("===================");
     }
     #endregion
 }

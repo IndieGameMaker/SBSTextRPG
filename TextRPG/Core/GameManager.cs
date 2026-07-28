@@ -102,4 +102,16 @@ public class GameManager
         Player.DisplayInfo();
     }
     #endregion
+
+    #region 메인 메뉴
+
+    public void ShowMainMenu()
+    {
+        Console.Clear();
+        Console.WriteLine("╔════════════════════════════════╗");
+        Console.WriteLine("║            메인 메뉴         ║");
+        Console.WriteLine("╚════════════════════════════════╝");
+    }
+
+    #endregion
 }
