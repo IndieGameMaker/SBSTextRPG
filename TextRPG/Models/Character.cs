@@ -33,6 +33,16 @@ public abstract class Character
     #endregion
 
     #region 메서드
-
+    // 캐릭터의 스텟 출력
+    public virtual void DisplayInfo()
+    {
+        Console.WriteLine($"==== {Name} 정보 ====");
+        Console.WriteLine($"레벨: {Level}");
+        Console.WriteLine($"체력: {CurrentHp}/{MaxHp}");
+        Console.WriteLine($"마나: {CurrentMp}/{MaxMp}");
+        Console.WriteLine($"공격력: {AttackPower}");
+        Console.WriteLine($"방어력: {Defense}");
+        //Console.WriteLine("=====================");
+    }
     #endregion
 }

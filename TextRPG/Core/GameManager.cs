@@ -99,11 +99,11 @@ public class GameManager
         Console.WriteLine($"{name}님, {job} 직업으로 캐릭터가 생성되었습니다.");
         
         // 테스트 코드
-        Console.WriteLine($"Player HP: {Player.CurrentHp}");
-        Console.WriteLine($"Player MP: {Player.CurrentMp}");
-        Console.WriteLine($"Player ATK: {Player.AttackPower}");
-        Console.WriteLine($"Player DEF: {Player.Defense}");
-        Console.WriteLine($"Player GOLD: {Player.Gold}");
+        // Console.WriteLine($"Player HP: {Player.CurrentHp}");
+        // Console.WriteLine($"Player MP: {Player.CurrentMp}");
+        // Console.WriteLine($"Player ATK: {Player.AttackPower}");
+        // Console.WriteLine($"Player DEF: {Player.Defense}");
+        // Console.WriteLine($"Player GOLD: {Player.Gold}");
     }
     #endregion
 }
