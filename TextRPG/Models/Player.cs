@@ -17,7 +17,7 @@ public class Player : Character
         name, 
         maxHp:GetInitHp(job), 
         maxMp:GetInitMp(job), 
-        attackPower:20,
+        attackPower:GetInitAttack(job),
         defense:10,
         level:1)
     {
@@ -49,5 +49,15 @@ public class Player : Character
             _ => 20
         };
     }
+
+    private static int GetInitAttack(JobType job) =>
+        job switch
+        {
+            JobType.Warrior => 50,
+            JobType.Archer => 80,
+            JobType.Wizard => 30,
+            _ => 20
+        };
+
     #endregion
 }
