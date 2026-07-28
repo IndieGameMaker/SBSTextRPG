@@ -15,7 +15,7 @@ public class Player : Character
     #region 생성자
     public Player(string name, JobType job) : base(
         name, 
-        maxHp:100, 
+        maxHp:GetInitHp(job), 
         maxMp:50, 
         attackPower:20,
         defense:10,
@@ -28,12 +28,15 @@ public class Player : Character
     
     #region 직업별 초기 스텟 로딩
 
-    // private static int GetInitHp(JobType job)
-    // {
-    //     switch (job)
-    //     {
-    //         case JobType.Warrior:
-    //     }
-    // }
+    private static int GetInitHp(JobType job)
+    {
+        switch (job)
+        {
+            case JobType.Warrior: return 150;
+            case JobType.Archer: return 100;
+            case JobType.Wizard: return 80;
+            default: return 100;
+        }
+    }
     #endregion
 }
