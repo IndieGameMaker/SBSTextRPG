@@ -13,7 +13,7 @@ public class Player : Character
     #endregion
     
     #region 생성자
-    public Player(string name, JobType job, int gold) : base(
+    public Player(string name, JobType job) : base(
         name, 
         maxHp:100, 
         maxMp:50, 
@@ -22,7 +22,7 @@ public class Player : Character
         level:1)
     {
         Job = job;
-        Gold = gold;
+        Gold = 1000;
     }
     #endregion
 }

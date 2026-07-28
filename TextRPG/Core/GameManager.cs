@@ -31,6 +31,10 @@ public class GameManager
     }
     #endregion
 
+    #region 프로퍼티
+    public Player? Player { get; private set; }
+    #endregion
+
     #region 게임 시작 / 종료
     // 게임 시작 메서드
     public void StartGame()
@@ -89,6 +93,10 @@ public class GameManager
 
             break; // while 루프의 break
         }
+        
+        // 입력한 이름과 선택한 직업으로 플레이어 캐릭터 생성
+        Player = new Player(name, job);
+        Console.WriteLine($"{name}님, {job} 직업으로 캐릭터가 생성되었습니다.");
     }
     #endregion
 }
