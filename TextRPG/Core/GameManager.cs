@@ -87,7 +87,7 @@ public class GameManager
                     continue;
             }
 
-            break;
+            break; // while 루프의 break
         }
     }
     #endregion
