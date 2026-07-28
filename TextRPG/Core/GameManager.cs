@@ -119,8 +119,9 @@ public class GameManager
         Console.WriteLine("5. 휴식(HP/MP 회복)");
         Console.WriteLine("6. 저장");
         Console.WriteLine("0. 종료");
-        
-        
+
+        Console.Write("\n선택 (1-6): ");
+        string? input = Console.ReadLine();
     }
 
     #endregion
