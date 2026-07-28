@@ -42,7 +42,6 @@ public abstract class Character
         Console.WriteLine($"마나: {CurrentMp}/{MaxMp}");
         Console.WriteLine($"공격력: {AttackPower}");
         Console.WriteLine($"방어력: {Defense}");
-        //Console.WriteLine("=====================");
     }
     #endregion
 }
