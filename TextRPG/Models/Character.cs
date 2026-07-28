@@ -14,7 +14,7 @@ public abstract class Character
     
     public int Level {get; protected set;}
     
-    // 생존여부
+    // 생존 여부
     public bool IsAlive => CurrentHp > 0;
     #endregion
 
