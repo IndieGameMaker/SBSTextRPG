@@ -59,7 +59,7 @@ public class GameManager
         // 게임 종료 로직 처리
         if (!IsRunning)
         {
-            // TODO: 게임 종료 처리
+            ConsoleUI.ShowGameOver();
         }
     }
     #endregion
@@ -143,7 +143,6 @@ public class GameManager
                 break;
             case "0":
                 IsRunning = false;
-                Console.WriteLine("\n게임을 종료합니다.");
                 break;
             default:
                 Console.WriteLine("\n잘못된 입력입니다. 다시 선택해주세요.");

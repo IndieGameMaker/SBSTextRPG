@@ -50,6 +50,16 @@ public class ConsoleUI
         Console.Write("\n아무 키나 누르면 계속합니다...");
         Console.ReadKey(true);
     }
+    
+    // 게임 오버 메시지 출력
+    public static void ShowGameOver()
+    {
+        Console.Clear();
+        Console.WriteLine("\n게임을 종료합니다.");
+        Console.WriteLine("╔════════════════════════════════╗");
+        Console.WriteLine("║           GAME OVER            ║");
+        Console.WriteLine("╚════════════════════════════════╝");        
+    }
 }
 
 
