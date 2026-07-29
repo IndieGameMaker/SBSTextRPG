@@ -46,6 +46,11 @@ public class GameManager
         ConsoleUI.ShowTitle();
         // 캐릭터 생성
         CreateCharacter();
+        
+        // 적 캐릭터 생성
+        Enemy enemy = Enemy.CreateEnemy(Player.Level);  
+        enemy.DisplayInfo();
+        
         // TODO : 인벤토리 초기화
         // TODO : 초기 아이템 지급
         
