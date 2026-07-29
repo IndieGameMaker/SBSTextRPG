@@ -32,7 +32,10 @@ public class GameManager
     #endregion
 
     #region 프로퍼티
+    // 주인공 캐릭터 클래스
     public Player? Player { get; private set; }
+    // 게임 실행 여부
+    public bool IsRunning { get; private set; } = true;
     #endregion
 
     #region 게임 시작 / 종료
@@ -45,7 +48,19 @@ public class GameManager
         CreateCharacter();
         // TODO : 인벤토리 초기화
         // TODO : 초기 아이템 지급
-        ShowMainMenu();
+        
+        Thread.Sleep(2000); // 2초 대기 (Blocking Mode) / Non-Blocking Mode
+
+        while (IsRunning)
+        {
+            DisplayMenu();
+        }
+        
+        // 게임 종료 로직 처리
+        if (!IsRunning)
+        {
+            // TODO: 게임 종료 처리
+        }
     }
     #endregion
     
@@ -106,22 +121,9 @@ public class GameManager
 
     #region 메인 메뉴
 
-    public void ShowMainMenu()
+    private void DisplayMenu()
     {
-        Console.Clear();
-        Console.WriteLine("╔════════════════════════════════╗");
-        Console.WriteLine("║            메인 메뉴           ║");
-        Console.WriteLine("╚════════════════════════════════╝");
-        Console.WriteLine("\n1. 상태보기");
-        Console.WriteLine("2. 인벤토리");
-        Console.WriteLine("3. 상점");
-        Console.WriteLine("4. 던전입장(전투)");
-        Console.WriteLine("5. 휴식(HP/MP 회복)");
-        Console.WriteLine("6. 저장");
-        Console.WriteLine("0. 종료");
-
-        Console.Write("\n선택 (1-6): ");
-        string? input = Console.ReadLine();
+        ConsoleUI.ShowMainMenu();
     }
 
     #endregion
