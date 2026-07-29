@@ -47,7 +47,7 @@ public class ConsoleUI
     // Press Any Key
     public static void PressAnyKey()
     {
-        Console.WriteLine("\n아무 키나 누르면 계속합니다...");
+        Console.Write("\n아무 키나 누르면 계속합니다...");
         Console.ReadKey(true);
     }
 }
