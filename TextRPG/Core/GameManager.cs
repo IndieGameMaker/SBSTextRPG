@@ -129,6 +129,7 @@ public class GameManager
         {
             case "1":
                 Player.DisplayInfo();
+                ConsoleUI.PressAnyKey();
                 break;
             case "2":
                 break;
@@ -146,6 +147,7 @@ public class GameManager
                 break;
             default:
                 Console.WriteLine("\n잘못된 입력입니다. 다시 선택해주세요.");
+                ConsoleUI.PressAnyKey();
                 break;
         }
     }
