@@ -50,11 +50,15 @@ public class GameManager
         // 적 캐릭터 생성
         Enemy enemy = Enemy.CreateEnemy(Player.Level);  
         enemy.DisplayInfo();
+        ConsoleUI.PressAnyKey();
+        
+        // 전투 테스트
+        
         
         // TODO : 인벤토리 초기화
         // TODO : 초기 아이템 지급
         
-        Thread.Sleep(2000); // 2초 대기 (Blocking Mode) / Non-Blocking Mode
+        //Thread.Sleep(2000); // 2초 대기 (Blocking Mode) / Non-Blocking Mode
 
         while (IsRunning)
         {

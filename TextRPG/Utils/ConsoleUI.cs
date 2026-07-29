@@ -60,6 +60,15 @@ public class ConsoleUI
         Console.WriteLine("║           GAME OVER            ║");
         Console.WriteLine("╚════════════════════════════════╝");        
     }
+    
+    // 전투시작 메시지 출력
+    public static void ShowBattleTitle()
+    {
+        Console.Clear();
+        Console.WriteLine("╔════════════════════════════════╗");
+        Console.WriteLine("║           전투 시작 !           ║");
+        Console.WriteLine("╚════════════════════════════════╝");        
+    }
 }
 
 
