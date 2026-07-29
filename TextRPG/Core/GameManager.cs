@@ -1,5 +1,6 @@
 using TextRPG.Utils;
 using TextRPG.Models;
+using TextRPG.Systems;
 
 namespace TextRPG.Core;
 
@@ -53,7 +54,9 @@ public class GameManager
         ConsoleUI.PressAnyKey();
         
         // 전투 테스트
-        
+        BattleSystem battleSystem = new BattleSystem();
+        battleSystem.StartBattle(Player, enemy);
+        ConsoleUI.PressAnyKey();
         
         // TODO : 인벤토리 초기화
         // TODO : 초기 아이템 지급
