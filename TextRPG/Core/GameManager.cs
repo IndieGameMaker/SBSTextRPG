@@ -123,7 +123,31 @@ public class GameManager
 
     private void DisplayMenu()
     {
-        ConsoleUI.ShowMainMenu();
+        string? input = ConsoleUI.ShowMainMenu();
+        // 메뉴 분기 처리
+        switch (input)
+        {
+            case "1":
+                Player.DisplayInfo();
+                break;
+            case "2":
+                break;
+            case "3":
+                break;
+            case "4":
+                break;
+            case "5":
+                break;
+            case "6":
+                break;
+            case "0":
+                IsRunning = false;
+                Console.WriteLine("\n게임을 종료합니다.");
+                break;
+            default:
+                Console.WriteLine("\n잘못된 입력입니다. 다시 선택해주세요.");
+                break;
+        }
     }
 
     #endregion
