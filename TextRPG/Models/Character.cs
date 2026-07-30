@@ -43,5 +43,18 @@ public abstract class Character
         Console.WriteLine($"공격력: {AttackPower}");
         Console.WriteLine($"방어력: {Defense}");
     }
+    
+    // 공격 메서드 정의 (추상 메서드)
+    public abstract int Attack(Character target);
+    
+    // 데미지 처리 메서드 (가상 메서드)
+    public virtual int TakeDamage(int damage)
+    {
+        // 방어력 적용
+        int actualDamage = Math.Max(1, damage - Defense);
+        CurrentHp = Math.Max(0, CurrentHp - actualDamage);
+        return actualDamage;
+    }
+
     #endregion
 }
