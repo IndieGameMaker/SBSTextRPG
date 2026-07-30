@@ -43,7 +43,7 @@ public class BattleSystem
         }
         else
         {
-            Console.WriteLine("\n전투 패배!");
+            Console.WriteLine("\n전투 패배 ㅠㅠ");
             return false;
         }
     }
