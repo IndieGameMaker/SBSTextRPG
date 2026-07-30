@@ -35,7 +35,7 @@ public class BattleSystem
 
     #region 플레이어 턴 (공격)
     // 플레이어 턴 (1.일반공격, 2.스킬공격, 3.도망)
-    private void PlayerTurn(Player player, Enemy enemy)
+    private bool PlayerTurn(Player player, Enemy enemy)
     {
         Console.WriteLine($"\n{player.Name}의 턴!");
         Console.WriteLine($"HP: {player.CurrentHp}/{player.MaxHp} | MP: {player.CurrentMp}/{player.MaxMp}");
@@ -55,7 +55,7 @@ public class BattleSystem
                     int damage = player.Attack(enemy);
                     Console.WriteLine($"{player.Name}의 공격! {enemy.Name}에게 {damage}의 피해를 입혔습니다.");
                     Console.WriteLine($"{enemy.Name}의 남은 HP: {enemy.CurrentHp}/{enemy.MaxHp}");
-                    break;
+                    return true;
                 
                 case "2": // 스킬 공격
                     // 스킬 사용전에 MP 체크
@@ -68,12 +68,12 @@ public class BattleSystem
                     // 스킬 발동
                     int skillDamage = player.SkillAttack(enemy);
                     Console.WriteLine($"{player.Name}의 스킬 공격! {enemy.Name}에게 {skillDamage}의 피해를 입혔습니다.");
-                    Console.WriteLine($"{player.Name}의 남은 MP: {player.CurrentHp}/{player.MaxHp}");
+                    Console.WriteLine($"{player.Name}의 남은 MP: {player.CurrentMp}/{player.MaxMp}");
                     Console.WriteLine($"{enemy.Name}의 남은 HP: {enemy.CurrentHp}/{enemy.MaxHp}");
-                    break;
+                    return true;
                 
                 case "3": // 도망
-                    break;
+                    return false;
                 
                 default:
                     Console.WriteLine("잘못된 입력입니다. 다시 선택해주세요.");
