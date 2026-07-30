@@ -52,11 +52,17 @@ public class BattleSystem
             switch (input)
             {
                 case "1": // 일반 공격
+                    int damage = player.Attack(enemy);
+                    Console.WriteLine($"{player.Name}의 공격! {enemy.Name}에게 {damage}의 피해를 입혔습니다.");
+                    Console.WriteLine($"{enemy.Name}의 남은 HP: {enemy.CurrentHp}/{enemy.MaxHp}");
                     break;
+                
                 case "2": // 스킬 공격
                     break;
+                
                 case "3": // 도망
                     break;
+                
                 default:
                     Console.WriteLine("잘못된 입력입니다. 다시 선택해주세요.");
                     break;
