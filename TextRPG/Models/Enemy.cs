@@ -44,5 +44,10 @@ public class Enemy : Character
         Console.WriteLine($"리워드: {GoldReward}");
     }
 
+    public override int Attack(Character target)
+    {
+        return target.TakeDamage(AttackPower);
+    }
+
     #endregion
 }
