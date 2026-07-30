@@ -34,7 +34,18 @@ public class BattleSystem
             turn++;
         }
         
-        return player.IsAlive;
+        // 전투 결과
+        if (player.IsAlive)
+        {
+            Console.WriteLine($"\n전투 승리!");
+            player.GainGold(enemy.GoldReward);
+            return true;
+        }
+        else
+        {
+            Console.WriteLine("\n전투 패배!");
+            return false;
+        }
     }
     #endregion
 
