@@ -66,7 +66,7 @@ public class ConsoleUI
     {
         Console.Clear();
         Console.WriteLine("╔════════════════════════════════╗");
-        Console.WriteLine("║           전투 시작 !           ║");
+        Console.WriteLine("║           전투 시작 !          ║");
         Console.WriteLine("╚════════════════════════════════╝");        
     }
 }

@@ -45,7 +45,7 @@ public class GameManager
     {
         // 게임 타이틀 표시
         ConsoleUI.ShowTitle();
-        // 캐릭터 생성
+        // 주인공 캐릭터 생성
         CreateCharacter();
         
         // 적 캐릭터 생성

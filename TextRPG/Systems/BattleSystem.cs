@@ -1,3 +1,4 @@
+using System;
 using TextRPG.Models;
 using TextRPG.Utils;
 
@@ -11,7 +12,27 @@ public class BattleSystem
     public bool StartBattle(Player player, Enemy enemy)
     {
         ConsoleUI.ShowBattleTitle();
-        // TODO : 전투로직 실행
+        // 등장한 적 캐릭터 스텟 출력
+        enemy.DisplayInfo();
+        
+        // 턴 변수 정의
+        int turn = 1;
+        
+        // 전투로직 실행
+        // while (player.IsAlive && enemy.IsAlive)
+        {
+            Console.WriteLine($"\n======= {turn} 턴 =======");
+            // 플레이어 턴 실행
+            // 적 캐릭터 사망 여부 판단
+            // 적 공격 턴
+            turn++;
+        }
+
+        // if (player.IsAlive == true)
+        // {
+        //     Console.WriteLine("아직 살아있음");
+        // }
+        
         return player.IsAlive;
     }
     #endregion
