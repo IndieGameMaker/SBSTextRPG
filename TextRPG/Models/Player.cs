@@ -87,5 +87,20 @@ public class Player : Character
         return target.TakeDamage(attackDamage);
     }
 
+    // 스킬 공격 (MP 소모) : Player 전용 메서드
+    public int SkillAttack(Character target)
+    {
+        int mpCost = 15;
+        
+        // 스킬 공격 = 기본공격 * 1.5 데미지
+        int totalDamage = AttackPower;
+        totalDamage = (int)(totalDamage * 1.5f);
+        // MP 소모
+        CurrentMp -= mpCost;
+        
+        // 데미지 전달
+        return target.TakeDamage(totalDamage);
+    }
+    
     #endregion
 }
