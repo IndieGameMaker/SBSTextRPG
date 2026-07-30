@@ -42,6 +42,25 @@ public class BattleSystem
         Console.WriteLine("1. 공격");
         Console.WriteLine("2. 스킬");
         Console.WriteLine("3. 도망");
+
+        while (true)
+        {
+            Console.WriteLine("\n선택 (1-3): ");
+            string? input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1": // 일반 공격
+                    break;
+                case "2": // 스킬 공격
+                    break;
+                case "3": // 도망
+                    break;
+                default:
+                    Console.WriteLine("잘못된 입력입니다. 다시 선택해주세요.");
+                    break;
+            }
+        }
     }
     #endregion
 
