@@ -23,6 +23,7 @@ public class BattleSystem
         {
             Console.WriteLine($"\n======= {turn} 턴 =======");
             // 플레이어 턴 실행
+            PlayerTurn(player, enemy);
             // 적 캐릭터 사망 여부 판단
             // 적 공격 턴
             turn++;
@@ -45,7 +46,7 @@ public class BattleSystem
 
         while (true)
         {
-            Console.WriteLine("\n선택 (1-3): ");
+            Console.Write("\n선택 (1-3): ");
             string? input = Console.ReadLine();
 
             switch (input)
