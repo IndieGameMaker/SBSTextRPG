@@ -27,18 +27,22 @@ public class BattleSystem
             // 적 공격 턴
             turn++;
         }
-
-        // if (player.IsAlive == true)
-        // {
-        //     Console.WriteLine("아직 살아있음");
-        // }
         
         return player.IsAlive;
     }
     #endregion
 
     #region 플레이어 턴 (공격)
-
+    // 플레이어 턴 (1.일반공격, 2.스킬공격, 3.도망)
+    private void PlayerTurn(Player player, Enemy enemy)
+    {
+        Console.WriteLine($"\n{player.Name}의 턴!");
+        Console.WriteLine($"HP: {player.CurrentHp}/{player.MaxHp} | MP: {player.CurrentMp}/{player.MaxMp}");
+        Console.WriteLine("\n행동을 선택하세요.");
+        Console.WriteLine("1. 공격");
+        Console.WriteLine("2. 스킬");
+        Console.WriteLine("3. 도망");
+    }
     #endregion
 
     #region 적캐럭터 턴 (공격)
