@@ -49,7 +49,7 @@ public class Enemy : Character
         // 일반 공격(70%) / 강한 공격(30%)
         Random random = new Random();
 
-        if (random.NextDouble() <= 0.7)
+        if (random.NextDouble() <= 0.7) // double 타입은 f 접미사 생략
         {
             // 일반 공격
             return target.TakeDamage(AttackPower);
@@ -61,8 +61,6 @@ public class Enemy : Character
             Console.WriteLine($"{Name}의 강한 공격! : {damage}");
             return target.TakeDamage(damage);
         }
-        
-        
     }
     
     #endregion
