@@ -73,9 +73,9 @@ public class InventorySystem
                     return;
                 default:
                     Console.WriteLine("잘못된 선택입니다. 다시 선택해주세요.");
+                    ConsoleUI.PressAnyKey();
                     break;
             }
-            
         }
     }
     #endregion
