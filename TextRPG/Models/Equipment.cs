@@ -26,5 +26,9 @@ public class Equipment : Item
     // 방어력 보너스
     public int DefenseBonus  { get; private set; }
     #endregion
-    
+
+    public override bool Use(Player player)
+    {
+        return true;
+    }
 }
