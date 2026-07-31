@@ -28,7 +28,7 @@ public class Enemy : Character
         EnemyType enemyType = (EnemyType)random.Next(0, 3); // 0, 1, 2
         
         // 적 캐릭터 스텟
-        int maxHp = 50 + (enemyLevel - 1) * 20;
+        int maxHp = 200 + (enemyLevel - 1) * 20;
         int maxMp = 20 + (enemyLevel - 1) * 10;
         int attackPower = 10 + (enemyLevel - 1) * 5;
         int defense = 5 + (enemyLevel - 1) * 3;

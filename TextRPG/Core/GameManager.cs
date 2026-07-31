@@ -28,13 +28,18 @@ public class GameManager
 
     private GameManager()
     {
-        
+        // 전투 시스템 초기화(인스턴스화)
+        BattleSystem = new BattleSystem();
     }
     #endregion
 
     #region 프로퍼티
     // 주인공 캐릭터 클래스
     public Player? Player { get; private set; }
+    
+    // 전투 시스템
+    public BattleSystem BattleSystem { get; private set; }
+    
     // 게임 실행 여부
     public bool IsRunning { get; private set; } = true;
     #endregion
@@ -49,14 +54,14 @@ public class GameManager
         CreateCharacter();
         
         // 적 캐릭터 생성
-        Enemy enemy = Enemy.CreateEnemy(Player.Level);  
-        enemy.DisplayInfo();
-        ConsoleUI.PressAnyKey();
+        // Enemy enemy = Enemy.CreateEnemy(Player.Level);  
+        // enemy.DisplayInfo();
+        // ConsoleUI.PressAnyKey();
         
         // 전투 테스트
-        BattleSystem battleSystem = new BattleSystem();
-        battleSystem.StartBattle(Player, enemy);
-        ConsoleUI.PressAnyKey();
+        // BattleSystem battleSystem = new BattleSystem();
+        // battleSystem.StartBattle(Player, enemy);
+        // ConsoleUI.PressAnyKey();
         
         // TODO : 인벤토리 초기화
         // TODO : 초기 아이템 지급
