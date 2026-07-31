@@ -48,6 +48,6 @@ public class Enemy : Character
     {
         return target.TakeDamage(AttackPower);
     }
-
+    
     #endregion
 }

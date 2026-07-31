@@ -101,5 +101,9 @@ public class BattleSystem
 
     #region 적캐럭터 턴 (공격)
 
+    private void EnemyTurn(Player player, Enemy enemy)
+    {
+        Console.WriteLine($"\n{enemy.Name}의 턴!");
+    }
     #endregion
 }
