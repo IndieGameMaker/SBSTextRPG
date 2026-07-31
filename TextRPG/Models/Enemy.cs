@@ -46,7 +46,23 @@ public class Enemy : Character
 
     public override int Attack(Character target)
     {
-        return target.TakeDamage(AttackPower);
+        // 일반 공격(70%) / 강한 공격(30%)
+        Random random = new Random();
+
+        if (random.NextDouble() <= 0.7)
+        {
+            // 일반 공격
+            return target.TakeDamage(AttackPower);
+        }
+        else
+        {
+            // 강한 공격
+            int damage = (int)(AttackPower * 1.5f);
+            Console.WriteLine($"{Name}의 강한 공격! : {damage}");
+            return target.TakeDamage(damage);
+        }
+        
+        
     }
     
     #endregion
