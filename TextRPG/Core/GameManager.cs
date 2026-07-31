@@ -37,11 +37,14 @@ public class GameManager
     // 주인공 캐릭터 클래스
     public Player? Player { get; private set; }
     
+    // 게임 실행 여부
+    public bool IsRunning { get; private set; } = true;
+
     // 전투 시스템
     public BattleSystem BattleSystem { get; private set; }
     
-    // 게임 실행 여부
-    public bool IsRunning { get; private set; } = true;
+    // 인벤토리 시스템
+    public InventorySystem Inventory { get; private set; }
     #endregion
 
     #region 게임 시작 / 종료
@@ -53,7 +56,8 @@ public class GameManager
         // 주인공 캐릭터 생성
         CreateCharacter();
         
-        // TODO : 인벤토리 초기화
+        // 인벤토리 초기화
+        Inventory = new InventorySystem();
         // TODO : 초기 아이템 지급
         
         while (IsRunning)
@@ -136,6 +140,7 @@ public class GameManager
                 break;
             
             case "2": // 인벤토리
+                Inventory.ShowInventoryMenu();
                 break;
             
             case "3": // 상점

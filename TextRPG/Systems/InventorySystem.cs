@@ -1,4 +1,5 @@
 using TextRPG.Models;
+using TextRPG.Utils;
 
 namespace TextRPG.Systems;
 
@@ -35,6 +36,21 @@ public class InventorySystem
         }
         
         return false;
+    }
+    #endregion
+
+    #region 인벤토리 표시
+
+    public void ShowInventoryMenu()
+    {
+        ConsoleUI.DisplayInventory();
+
+        if (Items.Count == 0)
+        {
+            Console.WriteLine("인벤토리가 비어있습니다.");
+        }
+        
+        ConsoleUI.PressAnyKey();
     }
     #endregion
 }

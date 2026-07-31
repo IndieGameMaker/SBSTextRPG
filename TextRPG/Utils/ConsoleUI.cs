@@ -69,6 +69,15 @@ public class ConsoleUI
         Console.WriteLine("║           전투 시작 !          ║");
         Console.WriteLine("╚════════════════════════════════╝");        
     }
+    
+    // 인벤토리 타이틀 출력
+    public static void DisplayInventory()
+    {
+        Console.Clear();
+        Console.WriteLine("╔════════════════════════════════╗");
+        Console.WriteLine("║            인벤토리            ║");
+        Console.WriteLine("╚════════════════════════════════╝");        
+    }
 }
 
 
