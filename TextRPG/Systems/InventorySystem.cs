@@ -43,14 +43,40 @@ public class InventorySystem
 
     public void ShowInventoryMenu()
     {
-        ConsoleUI.DisplayInventory();
 
-        if (Items.Count == 0)
+        while (true)
         {
-            Console.WriteLine("인벤토리가 비어있습니다.");
+            ConsoleUI.DisplayInventory();
+
+            if (Items.Count == 0)
+            {
+                Console.WriteLine("인벤토리가 비어있습니다.");
+            }
+            
+            Console.WriteLine("\n선택하세요.");
+            Console.WriteLine("1. 아이템 사용");
+            Console.WriteLine("2. 아이템 버리기");
+            Console.WriteLine("0. 나가기");
+            Console.Write("선택: ");
+            
+            string? input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    // 아이템 사용로직
+                    break;
+                case "2":
+                    // 아이템 버리기 로직
+                    break;
+                case "0":
+                    return;
+                default:
+                    Console.WriteLine("잘못된 선택입니다. 다시 선택해주세요.");
+                    break;
+            }
+            
         }
-        
-        ConsoleUI.PressAnyKey();
     }
     #endregion
 }
