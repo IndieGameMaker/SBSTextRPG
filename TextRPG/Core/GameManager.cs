@@ -53,16 +53,6 @@ public class GameManager
         // 주인공 캐릭터 생성
         CreateCharacter();
         
-        // 적 캐릭터 생성
-        // Enemy enemy = Enemy.CreateEnemy(Player.Level);  
-        // enemy.DisplayInfo();
-        // ConsoleUI.PressAnyKey();
-        
-        // 전투 테스트
-        // BattleSystem battleSystem = new BattleSystem();
-        // battleSystem.StartBattle(Player, enemy);
-        // ConsoleUI.PressAnyKey();
-        
         // TODO : 인벤토리 초기화
         // TODO : 초기 아이템 지급
         
@@ -130,9 +120,7 @@ public class GameManager
         // 입력한 이름과 선택한 직업으로 플레이어 캐릭터 생성
         Player = new Player(name, job);
         Console.WriteLine($"{name}님, {job} 직업으로 캐릭터가 생성되었습니다.");
-        
-        // 캐릭터 스텟 출력
-        Player.DisplayInfo();
+        ConsoleUI.PressAnyKey();
     }
     #endregion
 
@@ -144,29 +132,56 @@ public class GameManager
         // 메뉴 분기 처리
         switch (input)
         {
-            case "1":
+            case "1": // 상태보기
                 Player.DisplayInfo();
                 ConsoleUI.PressAnyKey();
                 break;
-            case "2":
+            
+            case "2": // 인벤토리
                 break;
-            case "3":
+            
+            case "3": // 상점
                 break;
-            case "4":
+            
+            case "4": // 던전입장
+                // 던전 입장 기능
+                EnterDungeon();
                 break;
-            case "5":
+            
+            case "5": // 휴식
                 break;
-            case "6":
+            
+            case "6": // 저장
                 break;
+            
             case "0":
                 IsRunning = false;
                 break;
+            
             default:
                 Console.WriteLine("\n잘못된 입력입니다. 다시 선택해주세요.");
                 ConsoleUI.PressAnyKey();
                 break;
         }
     }
+    #endregion
 
+    #region 메뉴 기능 구현부
+    // 던전 입장
+    public void EnterDungeon()
+    {
+        Console.Clear();
+        Console.WriteLine("\n던전에 입장합니다...");
+        
+        // 적 캐릭터 생성
+        Enemy enemy = Enemy.CreateEnemy(Player.Level);  
+        ConsoleUI.PressAnyKey();
+        
+        // 전투 테스트
+        BattleSystem.StartBattle(Player, enemy);
+        
+        Console.WriteLine("\n던전 탐험을 마치고 마을로 돌아갑니다...");
+        ConsoleUI.PressAnyKey();        
+    }
     #endregion
 }
