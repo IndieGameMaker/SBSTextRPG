@@ -7,6 +7,7 @@ namespace TextRPG.Systems;
 public class BattleSystem
 {
     #region 던전 입장 - 전투 실행
+
     // 전투 시작 메서드 
     // 반환값 : 전투 승리 여부
     public bool StartBattle(Player player, Enemy enemy)
@@ -14,10 +15,10 @@ public class BattleSystem
         ConsoleUI.ShowBattleTitle();
         // 등장한 적 캐릭터 스텟 출력
         enemy.DisplayInfo();
-        
+
         // 턴 변수 정의
         int turn = 1;
-        
+
         // 전투로직 실행
         while (player.IsAlive && enemy.IsAlive)
         {
@@ -25,20 +26,22 @@ public class BattleSystem
             // 플레이어 턴 실행
             if (!PlayerTurn(player, enemy))
             {
-               // 플레이어 도망친 경우
-               Console.WriteLine("\n전투에서 도망쳤습니다....");
-               return false;
+                // 플레이어 도망친 경우
+                Console.WriteLine("\n전투에서 도망쳤습니다....");
+                return false;
             }
+
             // 적 캐릭터 사망 여부 판단
             if (!enemy.IsAlive)
             {
                 break;
             }
+
             // 적 공격 턴
             EnemyTurn(player, enemy);
             turn++;
         }
-        
+
         // 전투 결과
         if (player.IsAlive)
         {
@@ -52,9 +55,11 @@ public class BattleSystem
             return false;
         }
     }
+
     #endregion
 
     #region 플레이어 턴 (공격)
+
     // 플레이어 턴 (1.일반공격, 2.스킬공격, 3.도망)
     private bool PlayerTurn(Player player, Enemy enemy)
     {
@@ -77,7 +82,7 @@ public class BattleSystem
                     Console.WriteLine($"{player.Name}의 공격! {enemy.Name}에게 {damage}의 피해를 입혔습니다.");
                     Console.WriteLine($"{enemy.Name}의 남은 HP: {enemy.CurrentHp}/{enemy.MaxHp}");
                     return true;
-                
+
                 case "2": // 스킬 공격
                     // 스킬 사용전에 MP 체크
                     if (player.CurrentMp < 15)
@@ -85,23 +90,36 @@ public class BattleSystem
                         Console.WriteLine("MP가 부족합니다.");
                         continue;
                     }
-                    
+
                     // 스킬 발동
                     int skillDamage = player.SkillAttack(enemy);
                     Console.WriteLine($"{player.Name}의 스킬 공격! {enemy.Name}에게 {skillDamage}의 피해를 입혔습니다.");
                     Console.WriteLine($"{player.Name}의 남은 MP: {player.CurrentMp}/{player.MaxMp}");
                     Console.WriteLine($"{enemy.Name}의 남은 HP: {enemy.CurrentHp}/{enemy.MaxHp}");
                     return true;
-                
+
                 case "3": // 도망
-                    return false;
-                
+                    // 도망 시동 : 성공 확률 50%
+                    Random random = new Random();
+                    if (random.NextDouble() < 0.5)
+                    {
+                        Console.WriteLine("\n도망에 성공했습니다.");
+                        return false;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n도망에 실패했습니다.");
+                        return true;
+                    }
+
+
                 default:
                     Console.WriteLine("잘못된 입력입니다. 다시 선택해주세요.");
                     break;
             }
         }
     }
+
     #endregion
 
     #region 적캐럭터 턴 (공격)
@@ -114,5 +132,6 @@ public class BattleSystem
         Console.WriteLine(($"{enemy.Name}의 공격! {player.Name}에게 {damage}만큼의 피해를 입혔습니다."));
         Console.WriteLine($"{player.Name}의 남은 HP: {player.CurrentHp}/{player.MaxHp}");
     }
+
     #endregion
 }

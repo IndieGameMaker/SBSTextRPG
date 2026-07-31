@@ -56,8 +56,6 @@ public class GameManager
         // TODO : 인벤토리 초기화
         // TODO : 초기 아이템 지급
         
-        //Thread.Sleep(2000); // 2초 대기 (Blocking Mode) / Non-Blocking Mode
-
         while (IsRunning)
         {
             DisplayMenu();
@@ -177,7 +175,7 @@ public class GameManager
         Enemy enemy = Enemy.CreateEnemy(Player.Level);  
         ConsoleUI.PressAnyKey();
         
-        // 전투 테스트
+        // 전투 시작
         BattleSystem.StartBattle(Player, enemy);
         
         Console.WriteLine("\n던전 탐험을 마치고 마을로 돌아갑니다...");
