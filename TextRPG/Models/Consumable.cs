@@ -13,10 +13,9 @@ public class Consumable : Item
         string name, 
         string description, 
         int price, 
-        ItemType type, 
         int hpAmount = 0, 
         int mpAmount = 0) 
-        : base(name, description, price, type)
+        : base(name, description, price, ItemType.Potion)
     {
         HpAmount = hpAmount;
         MpAmount = mpAmount;
@@ -61,6 +60,15 @@ public class Consumable : Item
         return isUsed;
     }
     #endregion
-    
-    
+
+    #region
+
+    public static Consumable CreatePotion(string potionType) => potionType switch
+    {
+        "체력포선" => new Consumable("체력포션", "50 HP를 회복하는 물약", 50, hpAmount:50),
+    };
+
+
+    #endregion
+
 }
