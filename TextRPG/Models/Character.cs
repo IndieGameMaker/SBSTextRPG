@@ -53,9 +53,27 @@ public abstract class Character
     {
         // 방어력 적용
         int actualDamage = Math.Max(1, damage - Defense);
+        // 최소값 제한
         CurrentHp = Math.Max(0, CurrentHp - actualDamage);
         return actualDamage;
     }
 
+    // HP 회복 메서드
+    public int HealHp(int amount)
+    {
+        int beforeHp = CurrentHp;
+        // 최댓값을 제한
+        CurrentHp = Math.Min(MaxHp, CurrentHp + amount);
+        return CurrentHp - beforeHp; // 실제 HP 회복량
+    }
+    
+    // MP 회복 메서드
+    public int HealMp(int amount)
+    {
+        int beforeMp = CurrentMp;
+        // 최댓값을 제한
+        CurrentMp = Math.Min(MaxMp, CurrentMp + amount);
+        return CurrentMp - beforeMp; // 실제 MP 회복량
+    }
     #endregion
 }
