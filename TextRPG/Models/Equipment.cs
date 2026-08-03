@@ -57,11 +57,27 @@ public class Equipment : Item
                                         WeaponGrade.Elite.ToString(), 
                                         100, 
                                         EquipmentSlot.Weapon, 
-                                        attackBonus: 15);
+                                        attackBonus: 25);
             default:
                 return null;
         }
     }
     // 방어구 생성 메서드
+    public static Equipment CreateAmor(string armorType)
+    {
+        switch (armorType)
+        {
+            case "천갑옷":
+                return new Equipment("천갑옷", "기본 방어구", 50, EquipmentSlot.Armor, 0, 0);
+            
+            case "철갑옷":
+                return new Equipment("철갑옷", "일반 방어구", 200, EquipmentSlot.Armor, 0, 20);
+            
+            case "전설갑옷":
+                return new Equipment("전설갑옷", "최고급 방어구", 1000, EquipmentSlot.Armor, 20, 50);
+            default:
+                return null;
+        }
+    }
     #endregion
 }
