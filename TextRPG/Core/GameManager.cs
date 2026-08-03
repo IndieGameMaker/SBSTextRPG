@@ -58,7 +58,8 @@ public class GameManager
         
         // 인벤토리 초기화
         Inventory = new InventorySystem();
-        // TODO : 초기 아이템 지급
+        // 초기 아이템 지급
+        SetupInitItems();
         
         while (IsRunning)
         {
@@ -71,6 +72,19 @@ public class GameManager
             ConsoleUI.ShowGameOver();
         }
     }
+
+    // 초기 아이템 지급
+    private void SetupInitItems()
+    {
+        // 기본 장비
+        Inventory.AddItem(Equipment.CreateWeapon(WeaponType.WoodSword));
+        Inventory.AddItem(Equipment.CreateAmor("천갑옷"));
+        // 포션 지급
+        
+        Console.WriteLine("\n초기 장비가 지급되었습니다.");
+        ConsoleUI.PressAnyKey();
+    }
+
     #endregion
     
     #region 캐릭터 생성
