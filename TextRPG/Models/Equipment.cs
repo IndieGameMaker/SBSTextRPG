@@ -29,6 +29,13 @@ public class Equipment : Item
 
     public override bool Use(Player player)
     {
+        // 장비 착용 로직 구현
         return true;
     }
+
+    #region 장착아이템 생성 매서드
+    // 무기 생성 메서드
+    public static Equipment CreateWeapon()
+    // 방어구 생성 메서드
+    #endregion
 }

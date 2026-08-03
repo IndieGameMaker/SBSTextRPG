@@ -26,3 +26,19 @@ public enum EquipmentSlot
     Weapon,
     Armor,
 }
+
+// 무기 타입
+public enum WeaponType
+{
+    WoodSword,
+    IronSword,
+    LegendarySword
+}
+
+// 무기 등급
+public enum WeaponGrade
+{
+    Basic,
+    Standard,
+    Elite
+}
