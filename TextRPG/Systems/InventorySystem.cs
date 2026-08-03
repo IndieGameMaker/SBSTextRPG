@@ -53,6 +53,13 @@ public class InventorySystem
                 Console.WriteLine("인벤토리가 비어있습니다.");
             }
             
+            Console.WriteLine("\n[보유 아이템 목록]");
+            for (int i = 0; i < Items.Count; i++)
+            {
+                Console.Write($"[{i + 1}] ");
+                Items[i].DisplayInfo();
+            }
+            
             Console.WriteLine("\n선택하세요.");
             Console.WriteLine("1. 아이템 사용");
             Console.WriteLine("2. 아이템 버리기");

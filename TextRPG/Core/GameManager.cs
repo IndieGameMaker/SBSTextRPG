@@ -80,6 +80,9 @@ public class GameManager
         Inventory.AddItem(Equipment.CreateWeapon(WeaponType.WoodSword));
         Inventory.AddItem(Equipment.CreateAmor("천갑옷"));
         // 포션 지급
+        Inventory.AddItem(Consumable.CreatePotion("체력포션"));
+        Inventory.AddItem(Consumable.CreatePotion("체력포션"));
+        Inventory.AddItem(Consumable.CreatePotion("마나포션"));
         
         Console.WriteLine("\n초기 장비가 지급되었습니다.");
         ConsoleUI.PressAnyKey();
