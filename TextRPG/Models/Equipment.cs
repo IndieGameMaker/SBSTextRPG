@@ -10,10 +10,9 @@ public class Equipment : Item
         string name, 
         string description, 
         int price, 
-        ItemType type, 
         EquipmentSlot slot, 
-        int attackBonus, 
-        int defenseBonus) : base(name, description, price, type)
+        int attackBonus = 0, 
+        int defenseBonus = 0) : base(name, description, price, slot == EquipmentSlot.Weapon ? ItemType.Weapon : ItemType.Armor)
     {
         Slot = slot;
         AttackBonus = attackBonus;
@@ -35,7 +34,34 @@ public class Equipment : Item
 
     #region 장착아이템 생성 매서드
     // 무기 생성 메서드
-    public static Equipment CreateWeapon()
+    public static Equipment CreateWeapon(WeaponType weaponType)
+    {
+        switch (weaponType)
+        {
+            case WeaponType.WoodSword:
+                return new Equipment( WeaponType.WoodSword.ToString(), 
+                                        WeaponGrade.Basic.ToString(), 
+                                        100, 
+                                        EquipmentSlot.Weapon, 
+                                        5);
+            
+            case WeaponType.IronSword:
+                return new Equipment( WeaponType.IronSword.ToString(), 
+                                        WeaponGrade.Standard.ToString(), 
+                                        100, 
+                                        EquipmentSlot.Weapon, 
+                                        attackBonus: 15);
+            
+            case WeaponType.LegendarySword:
+                return new Equipment( WeaponType.LegendarySword.ToString(), 
+                                        WeaponGrade.Elite.ToString(), 
+                                        100, 
+                                        EquipmentSlot.Weapon, 
+                                        attackBonus: 15);
+            default:
+                return null;
+        }
+    }
     // 방어구 생성 메서드
     #endregion
 }
