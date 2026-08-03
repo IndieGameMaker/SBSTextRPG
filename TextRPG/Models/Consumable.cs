@@ -65,7 +65,11 @@ public class Consumable : Item
 
     public static Consumable CreatePotion(string potionType) => potionType switch
     {
-        "체력포선" => new Consumable("체력포션", "50 HP를 회복하는 물약", 50, hpAmount:50),
+        "체력포션" => new Consumable("체력포션", "50 HP를 회복하는 물약", 50, hpAmount:50),
+        "대용량체력포션" => new Consumable("대용량체력포션", "100 HP를 회복하는 물약", 100, hpAmount:100),
+        "마나포션" => new Consumable("마나포션", "50 MP를 회복하는 포션", 80, mpAmount:50),
+        "대용량마나포션" => new Consumable("대용량마나포션", "100 MP를 회복하는 포션", 150, mpAmount:100),
+        _ => null!,
     };
 
 
