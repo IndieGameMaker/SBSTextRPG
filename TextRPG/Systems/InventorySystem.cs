@@ -110,11 +110,14 @@ public class InventorySystem<T> where T : Item
                 if (item is Consumable)
                 {
                     // 아이템 삭제 메소드
-                    //RemoveItem(item);
+                    // RemoveItem(item)
                 }
             }
         }
-
+        else if (index != 0)
+        {
+            Console.WriteLine("잘못된 선택입니다.");
+        }
     }
     #endregion
 }
