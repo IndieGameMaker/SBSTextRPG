@@ -8,8 +8,10 @@ public class Player : Character
     // 골드
     public int Gold { get; private set; }
     
-    // TODO: 장착 무기
-    // TODO: 장착 방어구
+    // 현재 장착 무기
+    public Equipment? EquipmentWeapon { get; private set; }
+    // 현재 장착 방어구
+    public Equipment? EquipmentArmor { get; private set; }
     #endregion
     
     #region 생성자
@@ -108,5 +110,18 @@ public class Player : Character
         Gold += amount;
         Console.WriteLine($"골드 +{amount} 획득! 현재 골드: {Gold}");
     }
+    
+    // 장비 착용
+    public void EquipItem(Equipment newEquipment)
+    {
+        Equipment? prevEquipment = null;
+
+        switch (newEquipment.Slot)
+        {
+            case EquipmentSlot.Weapon:
+                prevEquipment = ;
+        }
+    }
+    // 장비 해제
     #endregion
 }

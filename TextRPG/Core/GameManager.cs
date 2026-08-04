@@ -58,6 +58,7 @@ public class GameManager
         
         // 인벤토리 초기화
         Inventory = new InventorySystem<Item>();
+
         // 초기 아이템 지급
         SetupInitItems();
         
