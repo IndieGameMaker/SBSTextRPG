@@ -74,6 +74,7 @@ public class InventorySystem<T> where T : Item
             {
                 case "1":
                     // 아이템 사용로직
+                    UseItem();
                     break;
                 case "2":
                     // 아이템 버리기 로직
