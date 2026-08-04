@@ -1,3 +1,5 @@
+using TextRPG.Utils;
+
 namespace TextRPG.Models;
 
 public class Player : Character
@@ -134,6 +136,7 @@ public class Player : Character
             Console.WriteLine($"{prevEquipment.Name} 장착 해제");
         }
         Console.WriteLine($"{newEquipment.Name} 장착 완료");
+        ConsoleUI.PressAnyKey();
     }
     // 장비 해제
     #endregion
