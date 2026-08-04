@@ -119,8 +119,21 @@ public class Player : Character
         switch (newEquipment.Slot)
         {
             case EquipmentSlot.Weapon:
-                prevEquipment = ;
+                prevEquipment = EquipmentWeapon;
+                EquipmentWeapon = newEquipment;
+                break;
+            case EquipmentSlot.Armor:
+                prevEquipment = EquipmentArmor;
+                EquipmentArmor = newEquipment;
+                break;
         }
+        
+        // 이전 장비 해제 메시지
+        if (prevEquipment != null)
+        {
+            Console.WriteLine($"{prevEquipment.Name} 장착 해제");
+        }
+        Console.WriteLine($"{newEquipment.Name} 장착 완료");
     }
     // 장비 해제
     #endregion
