@@ -44,7 +44,7 @@ public class GameManager
     public BattleSystem BattleSystem { get; private set; }
     
     // 인벤토리 시스템
-    public InventorySystem Inventory { get; private set; }
+    public InventorySystem<Item> Inventory { get; private set; }
     #endregion
 
     #region 게임 시작 / 종료
@@ -57,7 +57,7 @@ public class GameManager
         CreateCharacter();
         
         // 인벤토리 초기화
-        Inventory = new InventorySystem();
+        Inventory = new InventorySystem<Item>();
         // 초기 아이템 지급
         SetupInitItems();
         

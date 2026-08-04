@@ -3,11 +3,11 @@ using TextRPG.Utils;
 
 namespace TextRPG.Systems;
 
-public class InventorySystem
+public class InventorySystem<T> where T : Item
 {
     #region 프로퍼티
     // 아이템 목록
-    public List<Item> Items { get; set; }
+    public List<T> Items { get; set; }
     // 아이템 갯수
     public int Count => Items.Count;
     #endregion
@@ -15,19 +15,19 @@ public class InventorySystem
     #region 생성자
     public InventorySystem()
     {
-        Items = new List<Item>();
+        Items = new List<T>();
     }
     #endregion
 
     #region 아이템 관리 메서드
     // 아이템 추가
-    public void AddItem(Item item)
+    public void AddItem(T item)
     {
         Items.Add(item);
         Console.WriteLine($"{item.Name}을 인벤토리에 추가했습니다.");
     }
     // 아이템 삭제
-    public bool RemoveItem(Item item)
+    public bool RemoveItem(T item)
     {
         if (Items.Remove(item))
         {
