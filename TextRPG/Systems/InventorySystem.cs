@@ -1,3 +1,4 @@
+using TextRPG.Core;
 using TextRPG.Models;
 using TextRPG.Utils;
 
@@ -18,6 +19,8 @@ public class InventorySystem<T> where T : Item
         Items = new List<T>();
     }
     #endregion
+    
+    private Player? _player => GameManager.Instance.Player;
 
     #region 아이템 관리 메서드
     // 아이템 추가
@@ -43,7 +46,6 @@ public class InventorySystem<T> where T : Item
 
     public void ShowInventoryMenu()
     {
-
         while (true)
         {
             ConsoleUI.DisplayInventory();
@@ -84,6 +86,35 @@ public class InventorySystem<T> where T : Item
                     break;
             }
         }
+    }
+    #endregion
+
+    #region  아이템 사용
+
+    private void UseItem()
+    {
+        if (Items.Count == 0)
+        {
+            Console.WriteLine("인벤토리가 비어있습니다.");
+            return;
+        }
+
+        Console.Write($"\n사용할 아이템 번호 (0:취소)> ");
+
+        if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index < Items.Count)
+        {
+            Item item = Items[index-1];
+            if (item.Use(_player))
+            {
+                // 소모성 아이템의 경우 사용후 리스트에서 제거
+                if (item is Consumable)
+                {
+                    // 아이템 삭제 메소드
+                    //RemoveItem(item);
+                }
+            }
+        }
+
     }
     #endregion
 }
