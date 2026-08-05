@@ -33,7 +33,18 @@ public class Equipment : Item
     public void Unequip() => IsEquipped = false;
     #endregion
 
-    #region 
+    #region 아이템 정보 표시 (장착 여부, 보너스 공격력, 방어력)
+
+    public override void DisplayInfo()
+    {
+        string bonus = "";
+        // , 공격력 +30, 방어력 +10
+        if (AttackBonus > 0) bonus += $", ATK +{AttackBonus}";
+        if (DefenseBonus > 0) bonus += $", DEF +{DefenseBonus}";
+
+        string equipped = IsEquipped ? " [장착중]" : ""; // 3항 연산자
+        Console.WriteLine($"[{Name}] {Description} (가격: {Price}골드{bonus}) {equipped}");
+    }
 
     #endregion
     
