@@ -102,16 +102,17 @@ public class InventorySystem<T> where T : Item
 
         Console.Write($"\n사용할 아이템 번호 (0:취소)> ");
 
-        if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index < Items.Count)
+        // 0,1,2,3,4  => 1,2,3,4,5
+        if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= Items.Count)
         {
-            Item item = Items[index-1];
+            T item = Items[index-1];
             if (item.Use(_player))
             {
                 // 소모성 아이템의 경우 사용후 리스트에서 제거
                 if (item is Consumable)
                 {
                     // 아이템 삭제 메소드
-                    // RemoveItem(item)
+                    RemoveItem(item);
                 }
             }
         }
@@ -120,5 +121,27 @@ public class InventorySystem<T> where T : Item
             Console.WriteLine("잘못된 선택입니다.");
         }
     }
+    #endregion
+
+    #region 아이템 버리기
+
+    private void DropItem()
+    {
+        if (Items.Count == 0) return;
+        
+        Console.Write("\n버릴 아이템 번호 (0:취소)> ");
+
+        if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= Items.Count)
+        {
+            var item = Items[index - 1]; // 선택한 아이템 번호 - 1 => 배열의 첨자
+            
+            Console.Write($"정말 {item.Name}을 버리겠습니까? (y/n): ");
+            if (Console.ReadLine()?.ToLower() == "y")
+            {
+                RemoveItem(item);
+            }
+        }
+    }
+
     #endregion
 }

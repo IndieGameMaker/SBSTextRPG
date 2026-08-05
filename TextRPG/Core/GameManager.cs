@@ -56,6 +56,9 @@ public class GameManager
         // 주인공 캐릭터 생성
         CreateCharacter();
         
+        // 테스트 코드
+        Player?.TakeDamage(100);
+        
         // 인벤토리 초기화
         Inventory = new InventorySystem<Item>();
 
