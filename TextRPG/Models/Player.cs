@@ -78,15 +78,31 @@ public class Player : Character
     // 플레이어 정보 출력(오버라이드)
     public override void DisplayInfo()
     {
-        base.DisplayInfo();
+        // base.DisplayInfo();
+        Console.Clear();
+        Console.WriteLine($"==== {Name} 정보 ====");
+        Console.WriteLine($"레벨: {Level}");
+        Console.WriteLine($"체력: {CurrentHp}/{MaxHp}");
+        Console.WriteLine($"마나: {CurrentMp}/{MaxMp}");
+
+        int attackBonus = EquipmentWeapon != null ? EquipmentWeapon.AttackBonus : 0;
+        int defenseBonus = EquipmentArmor != null ? EquipmentArmor.DefenseBonus : 0;
+        
+        Console.WriteLine($"공격력: {AttackPower} (+{attackBonus})");
+        Console.WriteLine($"방어력: {Defense} (+{defenseBonus})");
         Console.WriteLine($"골드: {Gold}");
         Console.WriteLine("===================");
+        
+        // 장착아이템 목록 Weapon / Armor
+        
     }
 
     public override int Attack(Character target)
     {
-        // TODO: 장착무기 또는 방어구에 따른 추가 데미지 계산
+        // 장착무기 또는 방어구에 따른 추가 데미지 계산
+        // null 병합 연산자(Null-coalescing operator)
         int attackDamage = AttackPower;
+        attackDamage += EquipmentWeapon?.AttackBonus ?? 0;
 
         return target.TakeDamage(attackDamage);
     }
@@ -98,6 +114,7 @@ public class Player : Character
         
         // 스킬 공격 = 기본공격 * 1.5 데미지
         int totalDamage = AttackPower;
+        totalDamage += EquipmentWeapon?.AttackBonus ?? 0;
         totalDamage = (int)(totalDamage * 1.5f);
         // MP 소모
         CurrentMp -= mpCost;
@@ -116,6 +133,14 @@ public class Player : Character
     // 장비 착용
     public void EquipItem(Equipment newEquipment)
     {
+        // 이미 장착중인 아이템 재선택 방지
+        if (newEquipment.IsEquipped)
+        {
+            Console.WriteLine($"{newEquipment.Name}은(는) 이미 장착중입니다.");
+            ConsoleUI.PressAnyKey();
+            return;
+        }
+        
         Equipment? prevEquipment = null;
 
         switch (newEquipment.Slot)
