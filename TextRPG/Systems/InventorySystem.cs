@@ -78,6 +78,7 @@ public class InventorySystem<T> where T : Item
                     break;
                 case "2":
                     // 아이템 버리기 로직
+                    DropItem();
                     break;
                 case "0":
                     return;
