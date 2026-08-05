@@ -140,5 +140,29 @@ public class Player : Character
         Console.WriteLine($"{newEquipment.Name} 장착 완료");
     }
     // 장비 해제
+    public Equipment? UnEquipItem(EquipmentSlot slot)
+    {
+        // 해제할 아이템을 저장할 변수
+        Equipment? equipment = null;
+
+        switch (slot)
+        {
+            case EquipmentSlot.Weapon:
+                equipment = EquipmentWeapon;
+                EquipmentWeapon = null;
+                break;
+            case EquipmentSlot.Armor:
+                equipment = EquipmentArmor;
+                EquipmentArmor = null;
+                break;
+        }
+
+        if (equipment != null)
+        {
+            equipment.Unequip();
+            Console.WriteLine($"{equipment.Name} 장착 해제");
+        }
+        return equipment;
+    }
     #endregion
 }
