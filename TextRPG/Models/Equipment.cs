@@ -66,21 +66,21 @@ public class Equipment : Item
                                         WeaponGrade.Basic.ToString(), 
                                         100, 
                                         EquipmentSlot.Weapon, 
-                                        5);
+                                        10);
             
             case WeaponType.IronSword:
                 return new Equipment( WeaponType.IronSword.ToString(), 
                                         WeaponGrade.Standard.ToString(), 
                                         100, 
                                         EquipmentSlot.Weapon, 
-                                        attackBonus: 15);
+                                        attackBonus: 30);
             
             case WeaponType.LegendarySword:
                 return new Equipment( WeaponType.LegendarySword.ToString(), 
                                         WeaponGrade.Elite.ToString(), 
                                         100, 
                                         EquipmentSlot.Weapon, 
-                                        attackBonus: 25);
+                                        attackBonus: 50);
             default:
                 return null;
         }
@@ -91,7 +91,7 @@ public class Equipment : Item
         switch (armorType)
         {
             case "천갑옷":
-                return new Equipment("천갑옷", "기본 방어구", 50, EquipmentSlot.Armor, 0, 0);
+                return new Equipment("천갑옷", "기본 방어구", 50, EquipmentSlot.Armor, 0, 5);
             
             case "철갑옷":
                 return new Equipment("철갑옷", "일반 방어구", 200, EquipmentSlot.Armor, 0, 20);

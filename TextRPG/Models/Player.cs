@@ -106,7 +106,6 @@ public class Player : Character
                 Console.WriteLine($"방어구: {EquipmentArmor.Name}");
             }
         }
-        
     }
 
     public override int Attack(Character target)
