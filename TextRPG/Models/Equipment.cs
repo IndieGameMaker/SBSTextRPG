@@ -4,8 +4,16 @@ public class Equipment : Item
 {
     #region 프로퍼티
     // 장착슬롯 타입
+    public EquipmentSlot Slot { get; private set; }
+    // 공격력 보너스
+    public int AttackBonus  { get; private set; }
+    // 방어력 보너스
+    public int DefenseBonus  { get; private set; }
+    // 장착여부
+    public bool IsEquipped { get; private set; } = false;
+    #endregion
 
-
+    #region 생성자
     public Equipment(
         string name, 
         string description, 
@@ -18,14 +26,17 @@ public class Equipment : Item
         AttackBonus = attackBonus;
         DefenseBonus = defenseBonus;
     }
-
-    public EquipmentSlot Slot { get; private set; }
-    // 공격력 보너스
-    public int AttackBonus  { get; private set; }
-    // 방어력 보너스
-    public int DefenseBonus  { get; private set; }
     #endregion
 
+    #region 장착 상태변경 메서드
+    public void Equip() => IsEquipped = true;
+    public void Unequip() => IsEquipped = false;
+    #endregion
+
+    #region 
+
+    #endregion
+    
     public override bool Use(Player player)
     {
         // 장비 착용 로직 구현
