@@ -94,6 +94,18 @@ public class Player : Character
         Console.WriteLine("===================");
         
         // 장착아이템 목록 Weapon / Armor
+        if (EquipmentWeapon != null || EquipmentArmor != null)
+        {
+            Console.WriteLine("장착중인 장비 목록");
+            if (EquipmentWeapon != null)
+            {
+                Console.WriteLine($"무기: {EquipmentWeapon.Name}");
+            }
+            if (EquipmentArmor != null)
+            {
+                Console.WriteLine($"방어구: {EquipmentArmor.Name}");
+            }
+        }
         
     }
 
