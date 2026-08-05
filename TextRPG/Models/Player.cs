@@ -133,8 +133,10 @@ public class Player : Character
         // 이전 장비 해제 메시지
         if (prevEquipment != null)
         {
+            prevEquipment.Unequip(); // 장착 해제
             Console.WriteLine($"{prevEquipment.Name} 장착 해제");
         }
+        newEquipment.Equip(); // 장착
         Console.WriteLine($"{newEquipment.Name} 장착 완료");
     }
     // 장비 해제
