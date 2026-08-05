@@ -139,6 +139,16 @@ public class InventorySystem<T> where T : Item
             Console.Write($"정말 {item.Name}을 버리겠습니까? (y/n): ");
             if (Console.ReadLine()?.ToLower() == "y")
             {
+                // 장착 아이템 인경우에만 장착해제
+                if (item is Equipment)
+                {
+                    if (item.Type == ItemType.Weapon)
+                        _player?.UnEquipItem(EquipmentSlot.Weapon);
+                    
+                    if (item.Type == ItemType.Armor)
+                        _player?.UnEquipItem(EquipmentSlot.Armor);
+                }
+                
                 RemoveItem(item);
             }
         }

@@ -161,6 +161,7 @@ public class Player : Character
         {
             equipment.Unequip();
             Console.WriteLine($"{equipment.Name} 장착 해제");
+            ConsoleUI.PressAnyKey();
         }
         return equipment;
     }
