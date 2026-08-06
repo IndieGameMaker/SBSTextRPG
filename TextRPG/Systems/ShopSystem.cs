@@ -65,7 +65,7 @@ public class ShopSystem
                 case "0":
                     Console.WriteLine("\n상점을 나갑니다....");
                     ConsoleUI.PressAnyKey();
-                    break;
+                    return;
                 default:
                     Console.WriteLine("\n잘못된 선택입니다.");
                     ConsoleUI.PressAnyKey();
@@ -73,6 +73,30 @@ public class ShopSystem
             }
         }
     }
+    #endregion
 
+    #region 구매 메서드
+
+    private void BuyItem(Player player, InventorySystem<Item> inventory)
+    {
+        // 구매 가능한 아이템 목록 (슈더 코드 : Pseudo - code)
+        Console.Clear();
+        Console.WriteLine("\n[구매 가능한 목록]");
+
+        for (int i = 0; i < ShopItems.Count; i++)
+        {
+            Console.Write($"[{i + 1}] ");
+            ShopItems[i].DisplayInfo();
+        }
+        
+        Console.Write("\n구매할 아이템 번호를 선택하세요. (0:취소)> ");
+        if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= ShopItems.Count)
+        {
+            var item = ShopItems[index - 1];
+            
+            // 골드가 충분한지 확인
+        }
+        
+    }
     #endregion
 }

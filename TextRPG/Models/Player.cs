@@ -201,5 +201,14 @@ public class Player : Character
         }
         return equipment;
     }
+    
+    // 골드 차감 메서드
+    public void SpendGold(int amount)
+    {
+        if (Gold >= amount)
+        {
+            Gold -= amount;
+        }
+    }
     #endregion
 }
