@@ -22,7 +22,19 @@ public class ShopSystem
     #region 상점 아이템 초기화
     private void InitShop()
     {
-        
+        // 무기
+        ShopItems?.Add(Equipment.CreateWeapon(WeaponType.WoodSword));
+        ShopItems?.Add(Equipment.CreateWeapon(WeaponType.IronSword));
+        ShopItems?.Add(Equipment.CreateWeapon(WeaponType.LegendarySword));
+        // 방어구
+        ShopItems?.Add(Equipment.CreateAmor("천갑옷"));
+        ShopItems?.Add(Equipment.CreateAmor("철갑옷"));
+        ShopItems?.Add(Equipment.CreateAmor("전설갑옷"));
+        // 포션
+        ShopItems?.Add(Consumable.CreatePotion("체력포션"));
+        ShopItems?.Add(Consumable.CreatePotion("대용량체력포션"));
+        ShopItems?.Add(Consumable.CreatePotion("마나포션"));
+        ShopItems?.Add(Consumable.CreatePotion("대용량마나포션"));
     }
     #endregion
 }
