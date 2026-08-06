@@ -103,6 +103,7 @@ public class ShopSystem
                 if (Console.ReadLine()?.ToLower() == "y")
                 {
                     // 골드 차감
+                    player.SpendGold(item.Price);
                     
                     // 구매한 아이템을 복제 (인스턴스)
                     
@@ -120,5 +121,40 @@ public class ShopSystem
         }
         
     }
+    #endregion
+
+    #region 아이템 복사 메서드
+
+    private Item CreateItem(Item item)
+    {
+        // 장착 아이템
+        if (item is Equipment equipment)
+        {
+            var newItem = new Equipment(
+                equipment.Name,
+                equipment.Description,
+                equipment.Price,
+                equipment.Slot,
+                equipment.AttackBonus,
+                equipment.DefenseBonus
+                );
+            
+            return newItem;
+        }
+        // 소모성 아이템
+        else if (item is Consumable consumable)
+        {
+            return new Consumable(
+                consumable.Name,
+                consumable.Description,
+                consumable.Price,
+                consumable.HpAmount,
+                consumable.MpAmount
+                );
+        }
+
+        return null;
+    }
+
     #endregion
 }
