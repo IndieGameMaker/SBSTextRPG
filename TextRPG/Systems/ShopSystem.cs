@@ -98,6 +98,23 @@ public class ShopSystem
             if (player.Gold >= item.Price)
             {
                 Console.Write($"{item.Name}을 {item.Price} 골드로 구매하시겠습니까? (y/n): ");
+
+                if (Console.ReadLine()?.ToLower() == "y")
+                {
+                    // 골드 차감
+                    
+                    // 구매한 아이템을 복제 (인스턴스)
+                    
+                    // 아이템 장착 , 인벤토리에 추가
+                    
+                    Console.WriteLine($"{item.Name}을 구매했습니다.");
+                    ConsoleUI.PressAnyKey();
+                }
+            }
+            else
+            {
+                Console.WriteLine("\n골드가 부족합니다.");
+                ConsoleUI.PressAnyKey();
             }
         }
         
