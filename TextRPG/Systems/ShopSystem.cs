@@ -93,23 +93,32 @@ public class ShopSystem
         Console.Write("\n구매할 아이템 번호를 선택하세요. (0:취소)> ");
         if (int.TryParse(Console.ReadLine(), out int index) && index > 0 && index <= ShopItems.Count)
         {
-            var item = ShopItems[index - 1];
+            var selectedItem = ShopItems[index - 1];
             
             // 골드가 충분한지 확인
-            if (player.Gold >= item.Price)
+            if (player.Gold >= selectedItem.Price)
             {
-                Console.Write($"{item.Name}을 {item.Price} 골드로 구매하시겠습니까? (y/n): ");
+                Console.Write($"{selectedItem.Name}을 {selectedItem.Price} 골드로 구매하시겠습니까? (y/n): ");
 
                 if (Console.ReadLine()?.ToLower() == "y")
                 {
                     // 골드 차감
-                    player.SpendGold(item.Price);
+                    player.SpendGold(selectedItem.Price);
                     
                     // 구매한 아이템을 복제 (인스턴스)
-                    
+                    var item = CreateItem(selectedItem);
                     // 아이템 장착 , 인벤토리에 추가
+                    if (item is Equipment equipment)
+                    {
+                        inventory.AddItem(equipment);
+                        player.EquipItem(equipment);
+                    }
+                    else if (item is Consumable consumable)
+                    {
+                        inventory.AddItem(consumable);
+                    }
                     
-                    Console.WriteLine($"{item.Name}을 구매했습니다.");
+                    Console.WriteLine($"{selectedItem.Name}을 구매했습니다.");
                     ConsoleUI.PressAnyKey();
                 }
             }
