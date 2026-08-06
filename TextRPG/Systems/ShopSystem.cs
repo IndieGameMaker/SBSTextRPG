@@ -166,4 +166,24 @@ public class ShopSystem
     }
 
     #endregion
+
+    #region 아이템 판매
+
+    private void SellItem(Player player, InventorySystem<Item> inventory)
+    {
+        if (inventory.Count == 0)
+        {
+            Console.WriteLine("\n판매할 아이템이 없습니다.");
+            return;
+        }
+        
+        Console.WriteLine("\n[보유 아이템 목록]");
+        for (int i = 0; i < inventory.Items.Count; i++)
+        {
+            Console.Write($"[{i + 1}] ");
+            inventory.Items[i].DisplayInfo();
+        }
+    }
+
+    #endregion
 }
