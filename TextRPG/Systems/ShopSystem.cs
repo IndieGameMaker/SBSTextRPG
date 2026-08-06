@@ -95,6 +95,10 @@ public class ShopSystem
             var item = ShopItems[index - 1];
             
             // 골드가 충분한지 확인
+            if (player.Gold >= item.Price)
+            {
+                Console.Write($"{item.Name}을 {item.Price} 골드로 구매하시겠습니까? (y/n): ");
+            }
         }
         
     }
