@@ -16,6 +16,7 @@ public class ShopSystem
     {
         ShopItems = new List<Item>();
         // 상점 아이템 초기화
+        InitShop();
     }
     #endregion
 
@@ -36,5 +37,42 @@ public class ShopSystem
         ShopItems?.Add(Consumable.CreatePotion("마나포션"));
         ShopItems?.Add(Consumable.CreatePotion("대용량마나포션"));
     }
+    #endregion
+
+    #region 상점 메뉴
+
+    public void ShowShopMenu()
+    {
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("╔════════════════════════════════╗");
+            Console.WriteLine("║             상  점             ║");
+            Console.WriteLine("╚════════════════════════════════╝");
+            Console.WriteLine("\n1. 아이템 구매");
+            Console.WriteLine("2. 아이템 판매");
+            Console.WriteLine("0. 나가기");
+
+            Console.Write("\n선택 > ");
+            string? input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1": // 구매 메서드
+                    break;
+                case "2": // 판매 메서드
+                    break;
+                case "0":
+                    Console.WriteLine("\n상점을 나갑니다....");
+                    ConsoleUI.PressAnyKey();
+                    break;
+                default:
+                    Console.WriteLine("\n잘못된 선택입니다.");
+                    ConsoleUI.PressAnyKey();
+                    break;
+            }
+        }
+    }
+
     #endregion
 }
