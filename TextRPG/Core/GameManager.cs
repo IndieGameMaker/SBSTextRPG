@@ -30,6 +30,8 @@ public class GameManager
     {
         // 전투 시스템 초기화(인스턴스화)
         BattleSystem = new BattleSystem();
+        // 상점 시스템 초기화
+        ShopSystem = new ShopSystem();
     }
     #endregion
 
@@ -45,6 +47,9 @@ public class GameManager
     
     // 인벤토리 시스템
     public InventorySystem<Item> Inventory { get; private set; }
+    
+    // 상점 시스템
+    public ShopSystem ShopSystem { get; private set; }
     #endregion
 
     #region 게임 시작 / 종료
@@ -172,6 +177,7 @@ public class GameManager
                 break;
             
             case "3": // 상점
+                ShopSystem.ShowShopMenu();
                 break;
             
             case "4": // 던전입장
