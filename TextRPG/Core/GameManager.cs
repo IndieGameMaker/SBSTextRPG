@@ -177,7 +177,7 @@ public class GameManager
                 break;
             
             case "3": // 상점
-                ShopSystem.ShowShopMenu();
+                ShopSystem.ShowShopMenu(Player, Inventory);
                 break;
             
             case "4": // 던전입장

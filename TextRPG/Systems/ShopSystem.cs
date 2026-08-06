@@ -41,7 +41,7 @@ public class ShopSystem
 
     #region 상점 메뉴
 
-    public void ShowShopMenu()
+    public void ShowShopMenu(Player player , InventorySystem<Item> inventory)
     {
         while (true)
         {
@@ -59,6 +59,7 @@ public class ShopSystem
             switch (input)
             {
                 case "1": // 구매 메서드
+                    BuyItem(player, inventory);
                     break;
                 case "2": // 판매 메서드
                     break;
