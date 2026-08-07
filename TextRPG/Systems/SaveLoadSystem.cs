@@ -28,7 +28,9 @@ public class SaveLoadSystem
             var saveData = new GameSaveData()
             {
                 // Player 데이터 변환
+                Player = ConvertToPlayerData(player),
                 // Inventory 데이터 변환
+                Inventory = ConvertToInventoryData(inventory),
             };
         }
         catch (Exception e)
@@ -63,6 +65,39 @@ public class SaveLoadSystem
             WeaponName = player.EquipmentWeapon?.Name,
             ArmorName = player.EquipmentArmor?.Name,
         };
+    }
+    #endregion
+    
+    #region InventorySystem -> Inventory
+
+    private static List<ItemData> ConvertToInventoryData(InventorySystem<Item> inventory)
+    {
+        var itemDataList = new List<ItemData>();
+
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            var item = inventory.Items[i];
+            if (item == null) continue;
+
+            var itemData = new ItemData()
+            {
+                Name = item.Name,
+            };
+
+            if (item is Equipment equipment)
+            {
+                itemData.ItemType = "Equipment";
+                itemData.Slot = equipment.Slot.ToString();
+            }
+            else if (item is Consumable consumable)
+            {
+                itemData.ItemType = "Consumable";
+            }
+            
+            itemDataList.Add(itemData);
+        }
+        
+        return itemDataList;
     }
     #endregion
 }
