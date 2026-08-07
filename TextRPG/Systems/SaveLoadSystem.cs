@@ -140,4 +140,13 @@ public class SaveLoadSystem
     }
 
     #endregion
+
+    #region Player 데이터 복원
+
+    public static Player LoadPlayer(PlayerData data)
+    {
+        
+    }
+
+    #endregion
 }

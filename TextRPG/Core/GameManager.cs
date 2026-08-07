@@ -237,4 +237,18 @@ public class GameManager
     }
 
     #endregion
+
+    #region 게임 로드
+
+    public bool LoadGame()
+    {
+        var loadData = SaveLoadSystem.LoadGameData();
+        if (loadData == null) return false;
+        
+        // 1. Player 복원
+        // 2. Inventory 복원
+        // 3. 장작아이템 설정
+    }
+
+    #endregion
 }
