@@ -24,7 +24,8 @@ public class SaveLoadSystem
     {
         try
         {
-            // 게임 데이터 객체(GameSaveData) => JSON 저장 (Serialize 직렬화)
+            // 1. 게임 데이터 객체(GameSaveData) => JSON 저장 (Serialize 직렬화)
+            // DTO(Data Transfer Object) 변환
             var saveData = new GameSaveData()
             {
                 // Player 데이터 변환
@@ -32,10 +33,20 @@ public class SaveLoadSystem
                 // Inventory 데이터 변환
                 Inventory = ConvertToInventoryData(inventory),
             };
+            
+            // 2. DTO 객체 => JSON 문자열로 변환
+            string jsonString = JsonSerializer.Serialize(saveData, jsonOptions);
+            
+            // 3. JSON 문자열 => 파일로 저장
+            File.WriteAllText(SaveFileName, jsonString);
+            
+            return true;
         }
         catch (Exception e)
         {
             // 예외 처리 로직
+            Console.WriteLine(e.Message);
+            return false;
         }
     }
 
