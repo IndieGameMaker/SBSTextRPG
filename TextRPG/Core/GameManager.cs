@@ -189,6 +189,7 @@ public class GameManager
                 break;
             
             case "6": // 저장
+                SaveGameData();
                 break;
             
             case "0":
@@ -226,7 +227,13 @@ public class GameManager
 
     public void SaveGameData()
     {
-        // if (Player == null )
+        if (Player == null || Inventory == null) return;
+
+        if (SaveLoadSystem.SaveGame(Player, Inventory))
+        {
+            Console.WriteLine("\n정상적으로 게임 데이터가 저장되었습니다.");
+            ConsoleUI.PressAnyKey();
+        }
     }
 
     #endregion
