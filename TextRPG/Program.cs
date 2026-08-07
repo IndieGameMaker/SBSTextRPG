@@ -45,6 +45,10 @@ class Program
                     GameManager.Instance.StartGame();
                     return;
                 case "2": // 이어서 하기
+                    if (GameManager.Instance.LoadGame())
+                    {
+                        GameManager.Instance.StartGame(true);
+                    }
                     return;
                 case "0": // 종료
                     Console.WriteLine("게임을 종료합니다.");

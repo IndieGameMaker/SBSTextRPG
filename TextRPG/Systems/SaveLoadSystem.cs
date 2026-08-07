@@ -145,7 +145,21 @@ public class SaveLoadSystem
 
     public static Player LoadPlayer(PlayerData data)
     {
+        var job = Enum.Parse<JobType>(data.Job);
+        // Player객체 생성
+        var player = new Player(data.Name, job);
         
+        // 스텟 설정
+        player.Level = data.Level;
+        player.CurrentHp = data.CurrentHp;
+        player.MaxHp = data.MaxHp;
+        player.CurrentMp = data.CurrentMp;
+        player.MaxMp = data.MaxMp;
+        player.AttackPower = data.AttackPower;
+        player.Defense = data.Defense;
+        player.Gold = data.Gold;
+        
+        return player;
     }
 
     #endregion

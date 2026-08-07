@@ -54,21 +54,21 @@ public class GameManager
 
     #region 게임 시작 / 종료
     // 게임 시작 메서드
-    public void StartGame()
+    public void StartGame(bool loadedGame = false)
     {
         // 게임 타이틀 표시
         ConsoleUI.ShowTitle();
-        // 주인공 캐릭터 생성
-        CreateCharacter();
         
-        // 테스트 코드
-        Player?.TakeDamage(100);
-        
-        // 인벤토리 초기화
-        Inventory = new InventorySystem<Item>();
-
-        // 초기 아이템 지급
-        SetupInitItems();
+        // 새로 시작하는 게임일 경우에만 캐릭터를 생성
+        if (!loadedGame)
+        {
+            // 주인공 캐릭터 생성
+            CreateCharacter();
+            // 인벤토리 초기화
+            Inventory = new InventorySystem<Item>();
+            // 초기 아이템 지급
+            SetupInitItems();
+        }
         
         while (IsRunning)
         {
@@ -246,8 +246,13 @@ public class GameManager
         if (loadData == null) return false;
         
         // 1. Player 복원
+        Player = SaveLoadSystem.LoadPlayer(loadData.Player);
         // 2. Inventory 복원
         // 3. 장작아이템 설정
+        
+        Console.WriteLine("게임을 로딩했습니다.");
+        ConsoleUI.PressAnyKey();
+        return true;
     }
 
     #endregion
