@@ -111,4 +111,33 @@ public class SaveLoadSystem
         return itemDataList;
     }
     #endregion
+
+    #region 불러오기 기능
+    // 저장 파일 유무
+    public static bool IsSaveFileExist()
+    {
+        return File.Exists(SaveFileName);
+    }
+
+    public static GameSaveData? LoadGameData()
+    {
+        try
+        {
+            // 1. JSON 파일에서 문자열 가져오기
+            string jsonString = File.ReadAllText(SaveFileName);
+            Console.WriteLine(jsonString);
+            
+            // 2. JSON 문자열 => DTO 클래스로 변환 (Deserialize 역직렬화)
+            var saveData = JsonSerializer.Deserialize<GameSaveData>(jsonString, jsonOptions);
+            Console.WriteLine("\n게임 데이터 로드가 완료되었습니다.");
+            return saveData;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return null;
+        }
+    }
+
+    #endregion
 }
