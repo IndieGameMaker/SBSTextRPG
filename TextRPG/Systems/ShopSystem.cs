@@ -203,7 +203,7 @@ public class ShopSystem
                 player.GainGold(sellPrice);
                 
                 // 장착해제
-                if (selectedItem is Equipment equipment)
+                if (selectedItem is Equipment equipment && equipment.IsEquipped)
                 {
                     player.UnEquipItem(equipment.Slot);
                 }

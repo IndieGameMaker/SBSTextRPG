@@ -139,8 +139,8 @@ public class InventorySystem<T> where T : Item
             Console.Write($"정말 {item.Name}을 버리겠습니까? (y/n): ");
             if (Console.ReadLine()?.ToLower() == "y")
             {
-                // 장착 아이템 인경우에만 장착해제
-                if (item is Equipment)
+                // 버리는 아이템이 장착된 경우에만 장착해제
+                if (item is Equipment equipment && equipment.IsEquipped)
                 {
                     if (item.Type == ItemType.Weapon)
                         _player?.UnEquipItem(EquipmentSlot.Weapon);
