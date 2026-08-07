@@ -221,4 +221,13 @@ public class GameManager
         ConsoleUI.PressAnyKey();        
     }
     #endregion
+
+    #region 저장 기능
+
+    public void SaveGameData()
+    {
+        // if (Player == null )
+    }
+
+    #endregion
 }
