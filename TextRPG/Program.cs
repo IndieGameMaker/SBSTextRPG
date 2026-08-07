@@ -15,7 +15,7 @@ class Program
         if (SaveLoadSystem.IsSaveFileExist())
         {
             // 메뉴 오픈(새게임, 이어서하기, 종료)
-            // TODO: 게임 로딩 및 새 게임 시작
+            ShowStartMenu();
         }
         else
         {
@@ -33,5 +33,25 @@ class Program
         Console.WriteLine("\n1. 새 게임");
         Console.WriteLine("2. 이어서하기");
         Console.WriteLine("0. 종료");
+
+        while (true)
+        {
+            Console.Write("\n선택> ");
+            string? input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1": // 새 게임 시작
+                    GameManager.Instance.StartGame();
+                    return;
+                case "2": // 이어서 하기
+                    return;
+                case "0": // 종료
+                    Console.WriteLine("게임을 종료합니다.");
+                    return;
+                default:
+                    break;
+            }
+        }
     }
 }
