@@ -6,15 +6,16 @@ namespace TextRPG.Core;
 public class GameSaveData
 {
     // Player Stat 데이터
-    
+    public PlayerData Player { get; set; }
     // 인벤토리 데이터
+    public List<ItemData> Inventory {get; set;}
 }
 
 public class PlayerData
 {
     // 기본정보
     public string Name  { get; set; }
-    public JobType JobType { get; set; }
+    public string Job { get; set; }
     
     // 스텟정보
     public int Level { get; set; }
@@ -31,3 +32,9 @@ public class PlayerData
     public string? ArmorName  { get; set; }
 }
 
+public class ItemData
+{
+    public string ItemType { get; set; }
+    public string Name { get; set; }
+    public string Slot { get; set; }
+}
