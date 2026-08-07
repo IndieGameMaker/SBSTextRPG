@@ -163,4 +163,75 @@ public class SaveLoadSystem
     }
 
     #endregion
+    
+    #region 인벤토리 데이터 복원 (수업 종료 후)
+    // ItemData DTO를 Inventory 클래스로 변환 메서드
+    public static InventorySystem<Item> LoadInventory(List<ItemData> itemDataList, Player player)
+    {
+        var inventory = new InventorySystem<Item>();
+        foreach (var itemData in itemDataList)
+        {
+            Item? item = null;
+
+            if (itemData.ItemType == "Equipment")
+            {
+                // 장착 슬롯 확인
+                var slot = Enum.Parse<EquipmentSlot>(itemData.Slot);
+                if (slot == EquipmentSlot.Weapon)
+                {
+                    item = Equipment.CreateWeapon(Enum.Parse<WeaponType>(itemData.Name));
+                }
+                else if (slot == EquipmentSlot.Armor)
+                {
+                    item = Equipment.CreateAmor(itemData.Name);
+                }
+            }
+            else if (itemData.ItemType == "Consumable")
+            {
+                item = Consumable.CreatePotion(itemData.Name);
+            }
+
+            if (item != null)
+            {
+                inventory.AddItem(item);
+            }
+        }
+        return inventory;
+    }
+    #endregion
+
+    #region 장착 아이템 복원(무기/방어구) (수업 종료 후)
+    public static void LoadEquippedItems(Player player, PlayerData data, InventorySystem<Item> inventory)
+    {
+        // 무기 장착 복원
+        if (!string.IsNullOrEmpty(data.WeaponName))
+        {
+            // 인벤토리에서 같은 무기를 찾기
+            for (int i = 0; i < inventory.Count; ++i)
+            {
+                var item = inventory.Items[i];
+                if (item is Equipment equipment && equipment.Slot == EquipmentSlot.Weapon &&
+                    equipment.Name == data.WeaponName)
+                {
+                    player.EquipItem(equipment);
+                    break;
+                }
+            }
+        }
+        
+        // 방어구 장착 복원
+        if (!string.IsNullOrEmpty(data.ArmorName))
+        {
+            for (int i=0; i < inventory.Count; ++i)
+            {
+                var item = inventory.Items[i];
+                if (item is Equipment equipment && equipment.Slot == EquipmentSlot.Armor &&
+                    equipment.Name == data.ArmorName)
+                {
+                    player.EquipItem(equipment);
+                }
+            }
+        }
+    }
+    #endregion
 }

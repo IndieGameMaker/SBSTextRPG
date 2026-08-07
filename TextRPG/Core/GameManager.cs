@@ -248,7 +248,9 @@ public class GameManager
         // 1. Player 복원
         Player = SaveLoadSystem.LoadPlayer(loadData.Player);
         // 2. Inventory 복원
+        Inventory = SaveLoadSystem.LoadInventory(loadData.Inventory, Player);
         // 3. 장작아이템 설정
+        SaveLoadSystem.LoadEquippedItems(Player, loadData.Player, Inventory);
         
         Console.WriteLine("게임을 로딩했습니다.");
         ConsoleUI.PressAnyKey();
